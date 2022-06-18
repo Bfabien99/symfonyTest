@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="container g-3 mt-4">
+        <a href="{{ path('post.new') }}" class="btn btn-success"> + Ajouter une image</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Title</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for upload in uploads %}
+                <tr>
+                    <td>{{ upload.id }}</td>
+                    <td><img src="/uploads/{{ upload.name }}" alt="" width="100px"></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+{% endblock %}
